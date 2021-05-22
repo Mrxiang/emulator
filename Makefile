@@ -10,4 +10,4 @@ run: Zygote.class app_process
 	./app_process
 
 clean:
-	rm -f Zygote.class app_process
+	rm -f com/wave/*.class app_process
