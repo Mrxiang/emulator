@@ -35,7 +35,7 @@ void invoke_class(JNIEnv* env)
     jmethodID power_method;
     jint number=20;
     jint exponent=3;
-    hello_world_class =(*env)->FindClass(env, "com/wave/Zygote");
+    hello_world_class =(*env)->FindClass(env, "com/wave/ZygoteInit");
     main_method =(*env)->GetStaticMethodID(env, hello_world_class, "main","([Ljava/lang/String;)V");
     square_method =(*env)->GetStaticMethodID(env, hello_world_class, "square","(I)I");
     power_method =(*env)->GetStaticMethodID(env, hello_world_class, "power","(II)I");
