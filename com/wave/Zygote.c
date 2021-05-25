@@ -9,6 +9,19 @@
 
 
 JNIEXPORT jint JNICALL Java_com_wave_Zygote_nativeForkSystemServer (JNIEnv *env, jobject obj){
-
     printf("fork \n");
+    pid_t pid = fork();
+    if( pid == 0 ){
+        printf("创建了子进程 ID :%d \n",getpid());
+
+        jclass hello_world_class;
+        jmethodID main_method;
+        hello_world_class =(*env)->FindClass(env, "com/wave/Launcher");
+        main_method =(*env)->GetStaticMethodID(env, hello_world_class, "main","([Ljava/lang/String;)V");
+        (*env)->CallStaticVoidMethod(env,hello_world_class, main_method, NULL);
+
+    }else{
+        printf("这是zygote 进程 ID :%d \n", getpid());
+    }
+    return pid;
 }
