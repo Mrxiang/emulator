@@ -26,9 +26,13 @@ public class ZygoteInit{
     }
 	public static void main(String[] args){
 		System.out.println("Hello, ZygoteInit");
+		ZygoteServer zygoteServer = new ZygoteServer();
+
         preload();
 		Zygote.forkSystemServer();
 
+        String abiList = null;
+        zygoteServer.runSelectLoop(abiList);
 	}
 
 

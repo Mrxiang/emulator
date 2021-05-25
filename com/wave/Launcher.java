@@ -25,12 +25,7 @@ public class Launcher{
         frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frm.setVisible(true);
         System.out.println("启动模拟器");
-        while( true ){
-            try{
-                Thread.sleep(1);
-            }catch (Exception e){
-            }
-        }
+
 	}
 
 
