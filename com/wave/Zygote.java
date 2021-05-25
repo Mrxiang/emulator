@@ -5,17 +5,14 @@ import javax.swing.JFrame;
 import java.lang.Thread;
 import java.lang.Exception;
 
-public class Zygote{
-    public native void helloWorld(); // 注意，这个native方法就是调用C语言接口用的
+public final class Zygote{
 
-    static{
-        System.loadLibrary("hello");  // 这行是调用动态链接库
+    native private static int nativeForkSystemServer();
+
+    public static int forkSystemServer(){
+                System.out.println("forkSystemServer");
+                int pid = nativeForkSystemServer();
+                return pid;
     }
-
-	public static void main(String[] args){
-		System.out.println("Hello, Zygote");
-		new Zygote().helloWorld();
-
-	}
 
 }
