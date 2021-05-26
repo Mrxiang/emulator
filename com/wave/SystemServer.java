@@ -37,6 +37,7 @@ public final class SystemServer {
     }
 
     private void startOtherServices() {
+            mActivityManagerService.systemReady();
             System.out.println("startOtherServices");
 
     }

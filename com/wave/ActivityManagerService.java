@@ -7,7 +7,6 @@ public class ActivityManagerService{
 
     private void start() {
 
-        Launcher.main(new String[] {ActivityManagerService.class.getName()});
         System.out.println("start ");
     }
 
@@ -29,5 +28,17 @@ public class ActivityManagerService{
         public ActivityManagerService getService() {
             return mService;
         }
+    }
+
+    public void systemReady() {
+
+         startHomeActivityLocked( "systemReady");
+
+    }
+
+    boolean startHomeActivityLocked( String reason) {
+
+          Launcher.main(new String[] {ActivityManagerService.class.getName()});
+          return true;
     }
 }
