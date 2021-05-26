@@ -29,13 +29,12 @@ JNIEnv* create_vm(JavaVM **jvm)
 void invoke_class(JNIEnv* env)
 {
     printf("%s\n",__func__);
-    jclass hello_world_class;
+    jclass zygote_init_class;
     jmethodID main_method;
 
-    hello_world_class =(*env)->FindClass(env, "com/wave/ZygoteInit");
-//    hello_world_class =(*env)->FindClass(env, "com/wave/Zygote");
-    main_method =(*env)->GetStaticMethodID(env, hello_world_class, "main","([Ljava/lang/String;)V");
-    (*env)->CallStaticVoidMethod(env,hello_world_class, main_method, NULL);
+    zygote_init_class =(*env)->FindClass(env, "com/wave/ZygoteInit");
+    main_method =(*env)->GetStaticMethodID(env, zygote_init_class, "main","([Ljava/lang/String;)V");
+    (*env)->CallStaticVoidMethod(env,zygote_init_class, main_method, NULL);
 }
 
 
@@ -47,5 +46,6 @@ int main(int argc,char **argv)
     if(env == NULL)
         return 1;
     invoke_class(env);
+
     return 0;
 }
